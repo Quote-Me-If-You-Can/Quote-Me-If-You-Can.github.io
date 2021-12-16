@@ -1,8 +1,8 @@
 ---
 layout: page
-title: All your review are belong to us
+title: Quote me if you can !
 cover-img: "img/steam_big.jpg"
-subtitle: An EPFL-Unil project on Steam reviews
+subtitle: An ADAventure based on quotations
 classes: wide
 ---
 
