@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Quote me if you can !
-cover-img: "img/background1.jpg"
+cover-img: "img/background2.jpg"
 subtitle: An ADAventure based on quotations
 classes: wide
 ---
