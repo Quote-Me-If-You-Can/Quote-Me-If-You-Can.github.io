@@ -8,26 +8,26 @@ classes: wide
 
 {% include konami.html %}
 
-## Video Gamez R kool
+Ever heard of [Catch Me If You Can](https://en.wikipedia.org/wiki/Catch_Me_If_You_Can) ? In this movie, the main character impersonates many professions mainly by appropriating their uniforms, specific behaviours and lingos, and everybody fall for it !  
 
-The number and variety of video games is humongous. As a relatively new medium, video game’s impressive growth attracts numerous scholars from different fields, though in a sometimes frustrating way. Many studies are focused on small scales and lack representativity, while others stay on an abstract level with their data handling.
+<img title="Do you concur ?" width="400px" src="img/tenor.gif">
 
-**So, what better way to make an interdisciplinary study of video games than to bring humanities, game studies and machine learning together?**
+[source](https://media1.tenor.com/images/24eba459fc0a6e19c4d2d60ed678e2f9/tenor.gif?itemid=7219821)
 
-With an enormous dataset of Steam reviews, we question the relevance of game genres, explore the possibility of classifying games based on their reviews, and study the resemblance between this classification and genres as well as user-defined tags.
-Continue reading for more details and other interesting statistics on Steam reviews!
+For the uniform it is quite obvious, but what can we say about the lingo ? One will agree that each occupation has its « proper words », but a person of a specific profession will also express himself in a certain manner. Think of a politician, she does not only speaks about economy and education, but also uses some figure of speech, and her discourse is fluid and well conducted (this might be hard to catch in a quote, but it is an example).  
+From this observation, we would like to see if it is possible to guess the profession of someone based on his quotations ?
 
 
 ## Table of Contents
 
 - [Dataset](#dataset)
-- [Game embeddings](#game-embeddings)
-- [Classification with K-means clustering](#classification-with-k-means-clustering)
-- [Clusters and tags comparison](#clusters-and-tags-comparison)
-- [A closer look at the reviews](#a-closer-look-at-the-reviews)
-- [PCA and classification](#pca-and-classification)
-- [What about the users?](#what-about-the-users)
-- [Conclusion](#conclusion)
+- [Preprocessing](#preprocessing)
+- [Occupation clustering](#classification-with-k-means-clustering)
+- [BERT](#clusters-and-tags-comparison)
+- [First results](#a-closer-look-at-the-reviews)
+- [Can we do better ?](#pca-and-classification)
+- [Results and limitations](#what-about-the-users)
+- [Room for improvement](#conclusion)
 - [References](#references)
 
 
