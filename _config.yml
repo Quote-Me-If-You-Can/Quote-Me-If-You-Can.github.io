@@ -18,9 +18,11 @@ navbar-links:
   #Embedding Projector: "embeddings"
   Github repo: "https://github.com/epfl-ada/ada-2021-project-k-dim"
   About the dataset:
-    - Learn about it!: "https://dlab.epfl.ch/people/west/pub/Vaucher-Spitz-Catasta-West_WSDM-21.pdf"
-    - Explore it!: "https://quotebank.dlab.tools/"
-    - Get it!: "https://zenodo.org/record/4277311" 
+    - Learn about it: "https://dlab.epfl.ch/people/west/pub/Vaucher-Spitz-Catasta-West_WSDM-21.pdf"
+    - Explore it: "https://quotebank.dlab.tools/"
+    - Get it: "https://zenodo.org/record/4277311" 
+    - A little help: "https://colab.research.google.com/drive/1NqLFrAWAzKxr2dAWHI7m6Ml3gWGF72cA?usp=sharing"
+    - Data augmentation: "https://drive.google.com/drive/folders/1VAFHacZFh0oxSxilgNByb1nlNsqznUf0"
 
 # --- Logo --- #
 
