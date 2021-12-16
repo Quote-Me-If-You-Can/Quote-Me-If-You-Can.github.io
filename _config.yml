@@ -6,7 +6,7 @@
 # --- Required options --- #
 
 # Name of website
-title: Applied Data Analysis 21-22
+title: Applied Data Analysis 2021 - k-dim team
 
 # Your name to show in the footer
 author: K. Sopov - I. Korovkin - M. Nougmar - D. Khatanassian
@@ -15,8 +15,9 @@ author: K. Sopov - I. Korovkin - M. Nougmar - D. Khatanassian
 
 navbar-links:
 
-  Embedding Projector: "embeddings"
-  Paper: "https://dlab.epfl.ch/people/west/pub/Vaucher-Spitz-Catasta-West_WSDM-21.pdf"
+  #Embedding Projector: "embeddings"
+  Github repo: "https://github.com/epfl-ada/ada-2021-project-k-dim"
+  About the dataset: "https://dlab.epfl.ch/people/west/pub/Vaucher-Spitz-Catasta-West_WSDM-21.pdf"
 
 
 # --- Logo --- #
