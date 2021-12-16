@@ -22,10 +22,10 @@ From this observation, we would like to see if it is possible to guess the profe
 
 - [Dataset](#dataset)
 - [Preprocessing](#preprocessing)
-- [Occupation clustering](#Occupation clustering)
+- [Occupation clustering](#Occupation-clustering)
 - [BERT](#BERT)
 - [First results](#First results)
-- [Can we do better ?](#Can-we-do-better-?)
+- [Can we do better ?](#Can-we-do-better)
 - [Results and limitations](#Results-and-limitations)
 - [Room for improvement](#Room-for-improvement)
 - [References](#references)
