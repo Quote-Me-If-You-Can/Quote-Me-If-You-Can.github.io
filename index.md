@@ -33,13 +33,28 @@ From this observation, we would like to see if it is possible to guess the profe
 
 
 ## Dataset
+lalala
+
 ## Preprocessing
+wewewewe
+
 ## Occupation clustering
+blalala
+
 ## BERT
+blalala
+
 ## First results
+blalala
+
 ## Can we do better ?
+blalala
+
 ## Results and limitations 
+blalala
+
 ## Room for improvement
+blalala
 
 For this project, we used a large-scale dataset of Steam reviews compiled in 2021, which is openly available on Kaggle[^1].
 
