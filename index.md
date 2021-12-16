@@ -22,17 +22,24 @@ From this observation, we would like to see if it is possible to guess the profe
 
 - [Dataset](#dataset)
 - [Preprocessing](#preprocessing)
-- [Occupation clustering](#classification-with-k-means-clustering)
-- [BERT](#clusters-and-tags-comparison)
-- [First results](#a-closer-look-at-the-reviews)
-- [Can we do better ?](#pca-and-classification)
-- [Results and limitations](#what-about-the-users)
-- [Room for improvement](#conclusion)
+- [Occupation clustering](#Occupation clustering)
+- [BERT](#BERT)
+- [First results](#First results)
+- [Can we do better ?](#Can-we-do-better-?)
+- [Results and limitations](#Results-and-limitations)
+- [Room for improvement](#Room-for-improvement)
 - [References](#references)
 
 
 
 ## Dataset
+## Preprocessing
+## Occupation clustering
+## BERT
+## First results
+## Can we do better ?
+## Results and limitations 
+## Room for improvement
 
 For this project, we used a large-scale dataset of Steam reviews compiled in 2021, which is openly available on Kaggle[^1].
 
