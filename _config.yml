@@ -16,6 +16,8 @@ author: K. Sopov - I. Korovkin - M. Nougmar - D. Khatanassian
 navbar-links:
 
   Embedding Projector: "embeddings"
+  Paper: "https://dlab.epfl.ch/people/west/pub/Vaucher-Spitz-Catasta-West_WSDM-21.pdf"
+
 
 # --- Logo --- #
 
