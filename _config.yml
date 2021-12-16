@@ -6,10 +6,10 @@
 # --- Required options --- #
 
 # Name of website
-title: Critical Data Studies 2021
+title: Applied Data Analysis 21-22
 
 # Your name to show in the footer
-author: M. Corboz - H. Sprumont - D. Mizrahi - L. Duggan - D. Khatanassian
+author: K. Sopov - I. Korovkin - M. Nougmar - D. Khatanassian
 
 # --- List of links in the navigation bar --- #
 
@@ -21,7 +21,7 @@ navbar-links:
 
 # Image to show in the navigation bar - works best with a square image
 # Remove this parameter if you don't want an image in the navbar
-avatar: "/assets/img/steam.jpg"
+avatar: "/assets/img/ada.png"
 
 # By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
 round-avatar: true
