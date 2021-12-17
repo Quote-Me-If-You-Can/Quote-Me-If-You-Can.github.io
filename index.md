@@ -25,8 +25,7 @@ Based on this statement: give us a quote, and we will tell you which profession 
 - [Filtering](#filtering)
 - [Occupation clustering](#occupation-clustering)
 - [BERT](#bert)
-- [First results](#first-results)
-- [Can we do better ?](#can-we-do-better-?)
+- [Results](#results)
 - [Results and limitations](#results-and-limitations)
 - [Room for improvement](#room-for-improvement)
 - [References](#references)
@@ -76,7 +75,7 @@ By doing so we dealt with both the "homonym issue" and the "empty speaker issue"
     </p>
 </figure>
 
-Fine, but now suppose that Harry Potter the magician was tired of figthing evil, and after all, You-Know-Who has been defeated in 2011 so... He decided to start a career as a journalist at the renown "The Daily Prophet" newspaper. We now have Harry Potter the magician and Harry Potter the journalist (it is the same person now). So how do we know that his quotes are those of a magician or those of a journalist ?  
+Fine, but now suppose that Harry Potter the magician was tired of figthing evil, and after all, You-Know-Who has been defeated in 2011 so... He decided to start a career as a journalist at the renown "The Daily Prophet" newspaper. We now have Harry Potter the magician and Harry Potter the journalist (it is the same person now). So how do we know that his quotes are those of a magician or those of a journalist ? 
 This is why we remove all speaker that have more than one occupation. By doing so we remove 12% of the remaining data.
 
 ## Occupation clustering
@@ -88,13 +87,12 @@ By applying our filtering criterions on the external dataset, we find that there
     </p>
 </figure>
 
-We selectected an amount we can sort by hand = 280 (even though it is still a piece of work), this correspond to a treshold of occurencies > 1000. The downside is that we loose a lot of occupation just because we can't sort them by hand. We would need another unpaid assistant to do it for us... and we will come back later to that.
+We selectected an amount we can sort by hand = 280 (even though it is still a piece of work), this correspond to a treshold of occurencies > 1000. The downside is that we loose a lot of occupation just because we can't sort them by hand. We would need another unpaid assistant to do it for us... and we will come back later to that. Those "unclustered" occupations are gathered in `Other`. There was some "nan" occupation that survived the df.dropna() because they were of type string. We store those in `NoOcc`.
 
-To define some clusters we looked at those publications [here](https://repository.library.georgetown.edu/handle/10822/559298)[^2] and [there](https://www.leyden212.org/Page/4244) about Career Clusters. Based on that we build two tables:  
+To define some clusters we looked at those publications [here](https://repository.library.georgetown.edu/handle/10822/559298)[^2] and [there](https://www.leyden212.org/Page/4244) about Career Clusters. After that, we classified by hand our occupations with occurencies > 1000 in similar clusters and assign our quotations to unique occupation. (recall: 1 quotation >> a unique Qid speaker >> a sole occupation). We build two new datasets:  
+One consists of 4 classes, it will be used  for the proof-of-concept of the -later explained- BERT-based classifier:
 
-This one is for the proof-of-concept of the -later explained- BERT-based classifier:
-
-| Cluster | Label | Meaning | # of available quote|
+| Cluster | Label | Meaning | # of quote|
 |-------|--------|---------|---------|
 | 0 | Research | Research and science related careers | 2'372'142 |
 | 1 | Politics | Government related careers | 6'928'256 |
@@ -107,9 +105,9 @@ This one is for the proof-of-concept of the -later explained- BERT-based classif
     </p>
 </figure>
 
-This one is the one we want to achieve at the end
+The second one consists of the 20 classes:
 
-| Cluster | Label | Meaning | # of available quote|
+| Cluster | Label | Meaning | # of quote|
 |-------|--------|---------|---------|
 | 0 | Other| NaN careers | 2'167'753|
 | 1 | AFNR | Agriculture, Food and Natural Resources careers | 9'891 |
@@ -142,13 +140,16 @@ This one is the one we want to achieve at the end
 If you noticed that the cluster #2 does not exist in the last table it is just because we created a cluster with no quotes in it by mistake... if yu didn't notice it, this is not so important.
 
 ## BERT
-Where we find it
-Did we modify it ?
-Write about internal preprocessing
+Where we find it  
+Did we modify it ?  
+Write about internal preprocessing  
 
 
 ## First results
-After having feed the classifier with the quotes clustered following the 4-classes table, and trained it for 20 minutes, we get the following results:
+We present here the different results: the "proof-of-concept" classification, followed by the 20 classes classification, and an extra step ;)
+
+#### Proof-of-concept
+After having fed the classifier with the quotes classified following the 4-classes table, and trained it for 20 minutes, we get the following results:
 
 <figure>
     <p align="center">
@@ -160,12 +161,29 @@ The behaviour of the curves has nothing to do with the swiss mountains; it just 
 The important point is that it learns well and fast ! Here is the roc_auc for each class:
 
 <figure>
-    <p align="centered">
+    <p align="center">
     <img title="4class_loss_graph" width="400px" src="img/results/4classes_rocauc_values.png">
     </p>
 </figure>
 
-## Can we do better ?
+#### 20 classes
+Well, this seems nice. Just feed the classifier with the quotes classified following the 20-classes table, run it for 8-10h and that's it! 
+
+<figure>
+    <p align="center">
+    <img title="20class_loss_graph" width="400px" src="img/results/20classes_loss_graph.png">
+    </p>
+</figure>
+
+
+
+<figure>
+    <p align="center">
+    <img title="20class_loss_graph" width="400px" src="img/results/20classes_rocauc_values.png">
+    </p>
+</figure>
+
+#### Can we do better ?
 blalala
 
 ## Results and limitations 
