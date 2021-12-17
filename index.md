@@ -56,6 +56,9 @@ Here is some of its failures:
 * The Harry Potter he refers to is an [Australian journalist](https://en.wikipedia.org/wiki/Harry_Potter_(journalist)).
 * Joe Bidden does not like himself so much.
 
+But this will be good enough for our purpose. Just keep in mind that Quobert is an unpaid assistant. 
+
+
 ## Preprocessing
 wewewewe
 
