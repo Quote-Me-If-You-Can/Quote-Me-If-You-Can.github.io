@@ -27,6 +27,7 @@ Based on this statement: give us a quote, and we will tell you which profession 
 - [BERT](#bert)
 - [Results](#results)
 - [Room for improvement](#room-for-improvement)
+- [Conclusion](#conclusion)
 - [References](#references)
 
 
@@ -289,6 +290,13 @@ Sentence-BERT was used to cluster 6800 occupations into 10 defined clusters, by 
     <img title="Prediction Confidence of Sequence-BERT" width="800px" src="img/prediction_confidence_SequenceBERT.png">
     </p>
 </figure>
+
+## Conclusion
+We finally get a classifier performing correctly. Furthermore, it would awesome to make use of the implemented automated occupation clusterer. But this is your job if you want to ;)  
+
+Thank for having read us! I hope you enjoyed your ADAventure with us.
+
+The k-dim team.
 
 ## References<br>
 
