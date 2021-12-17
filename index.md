@@ -33,7 +33,8 @@ Based on this statement: give us a quote, and we will tell you which profession 
 
 
 
-## Dataset
+## Datasets
+#### Quotebank
 We do we have here ? The full dataset is made of 178 million quotations together with a list of possible speaker ranked by probability, the name of the most probable speaker and its [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) qid, when it has been published, and where it has been published. The later is important because this information has been exctracted out of 162 million English news articles published between 2008 and 2020 included, so one might want to keep records of it.
 
 162 million, 178 million, but who did that ? Well it's the nice library assistant Quobert, and it does it freely. Here is a nice picture (taken from the paper[^3] explaining in full detail how the dataset has been collected) that could help you to grasp Quobert's workflow.
@@ -56,7 +57,11 @@ Here is some of its failures:
 * The Harry Potter he refers to is an [Australian journalist](https://en.wikipedia.org/wiki/Harry_Potter_(journalist)).
 * Joe Bidden does not like himself so much.
 
-But this will be good enough for our purpose. Just keep in mind that Quobert is an unpaid assistant. 
+But this will be good enough for our purpose. Just keep in mind that Quobert is an unpaid assistant.  
+Furthermore, for this project, we did not use the full Quotebank but only the years 2015-2020 included.
+
+#### External sources
+We said we want to predict the occupations but did not said a word about it so far... Quotebank is augmented using metadata about the speakers. It an external dataset we will find for ~9M Wikidata entities some additional information as occupation, gender, religion, etc.
 
 
 ## Preprocessing
