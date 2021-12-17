@@ -80,7 +80,15 @@ Fine, but now suppose that Harry Potter the magician was tired of figthing evil,
 This is why we remove all speaker that have more than one occupation. By doing so we remove 12% of the remining data.
 
 ## Occupation clustering
-By applying our filtering criterions on the external dataset, we find that there is 6800 different occupations in it. This is a lot. To reduced them we firstly look
+By applying our filtering criterions on the external dataset, we find that there is 6800 different occupations in it. This is a lot. Here is a look at the distribution of occurencies of occupations:
+
+<figure>
+    <p align="center">
+    <img title="occuroccup" width="400px" src="img/nb_occur_occup.png">
+    </p>
+</figure>
+
+To reduced them we firstly look
 
 We found some publications [here](https://repository.library.georgetown.edu/handle/10822/559298)[^2] and [there](https://www.leyden212.org/Page/4244) about Career Clusters. Based on them we 
 
