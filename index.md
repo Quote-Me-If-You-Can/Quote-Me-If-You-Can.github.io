@@ -50,7 +50,7 @@ Here is some of its failures:
 
 <figure>
     <p align="center">
-    <img title="Quobert.PNG" width="400px" src="img/fail.pnj">
+    <img title="Fails" width="400px" src="img/fail.png">
     </p>
 </figure>
 
