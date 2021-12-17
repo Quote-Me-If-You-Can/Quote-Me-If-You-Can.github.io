@@ -142,9 +142,13 @@ If you noticed that the cluster #2 does not exist in the last table it is just b
 
 ## BERT
 
-Where we find it  
-Did we modify it ?  
-Write about internal preprocessing  
+We used pretrained BERT-Base model (BertTokenizer and BertModel with 768 hidden layers, introduced in this paper). We add one fully connected layer with 10 output dimensions. BertTokenizer transforms input string into tokens, then BertModel returns 768-dimensional representation of input string. Further, added layer produce 10 values which after applying sigmoid function predict the probabilities of each class.
+
+The weighted binary cross entropy was used as a loss function. The weights were used to decrease the effect of unbalanced data. The weights were computed as normalized reverse frequencies of classes in the train data.
+
+For transformer-based models, it is convenient to use a schedular which changes learning rate during training to make training more smooth: smoothness increases the learning rate from zero to set value during warmup training period and smoothly decrease it to zero for last part of training. We used linear schedular with warmup period equals to first 10% of total training steps.
+
+After several training trials we found that weighted loss does not fully prevent overfitting to the most frequent classes. For training the final model, we decided to create fully balanced train and test datasets. 
 
 
 ## Results
@@ -194,8 +198,8 @@ They are close to 0.5, which means that the classifier just classify randomly. T
 #### Can we do better ?
 We assumed that the problem came from the fact that we have to many classes. So we decided to move from 20 to only 10 classes. We merge the classes according their similarity.  Here is the new classification table:
 
-| Cluster | Label | Meaning | # of quote before filtering| # of quote after filtering |
-|-------|--------|---------|---------|
+| Cluster | Label | Meaning | # of quote before filtering | # of quote after filtering |
+|-------|--------|---------|---------|---------|
 | 0 | AAVTCM | Arts, Audio/Video Technology and Communications careers | 2'778'314 | 2'289'052 |
 | 1 | BMAxF | Business Management and Administration careers | 1'236'888 | 1'064'036 |
 | 2 | GPAxLPSCS | Government, Law, Security careers | 7'072'268 | 6'159'748 |
@@ -250,6 +254,7 @@ Good news, we fixed the scheduler as well. Here is our loss curves :
     </p>
 </figure>
 
+It finally behaves normally. What about the performance metrics ?
 
 <figure>
     <p align="center">
@@ -257,6 +262,7 @@ Good news, we fixed the scheduler as well. Here is our loss curves :
     </p>
 </figure>
 
+Seems good as well. And for the confusion matrix ? 
 
 <figure>
     <p align="center">
@@ -264,20 +270,10 @@ Good news, we fixed the scheduler as well. Here is our loss curves :
     </p>
 </figure>
 
-
-
-
-## Results and limitations 
-blalala
+Great ! Problem fixed :)
 
 ## Room for improvement
-blalala
 
-## Game embeddings
-
- train a Sent2vec[^2] 
-
-[**this dedicated page**]({% link embeddings.md %})
 
 ## References<br>
 
