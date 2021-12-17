@@ -36,6 +36,12 @@ Based on this statement: give us a quote, and we will tell you which profession 
 ## Dataset
 The full dataset is extracted from[^3]
 
+<figure>
+    <p align="center">
+    <img title="Quobert.PNG" width="400px" src="img/Quobert.PNG">
+    </p>
+</figure>
+
 * 178 mio. quotations attributed
 * 162 mio. English news btw [2008-2020]
 * Quobert: correct attributes 86.9%
