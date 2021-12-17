@@ -26,14 +26,15 @@ Based on this statement: give us a quote, and we will tell you which profession 
 - [Occupation clustering](#occupation-clustering)
 - [BERT](#bert)
 - [Results](#results)
-- [Results and limitations](#results-and-limitations)
 - [Room for improvement](#room-for-improvement)
 - [References](#references)
 
 
 
 ## Datasets   
-  
+
+We present here the two main datasets used for this project. You can find them following the link in the upper menu. 
+
 #### Quotebank
 We do we have here ? The full dataset is made of 178 million quotations together with a list of possible speaker ranked by probability, the name of the most probable speaker and its [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) Qid, when it has been published, and where it has been published. The later is important because this information has been exctracted out of 162 million English news articles published between 2008 and 2020 included, so one might want to keep records of it.
 
@@ -79,6 +80,7 @@ Fine, but now suppose that Harry Potter the magician was tired of figthing evil,
 This is why we remove all speaker that have more than one occupation. By doing so we remove 12% of the remaining data.
 
 ## Occupation clustering
+
 By applying our filtering criterions on the external dataset, we find that there is 6800 different occupations in it. This is a lot. Here is a look at the distribution of occurencies of occupations:
 
 <figure>
@@ -140,12 +142,13 @@ The second one consists of the 20 classes:
 If you noticed that the cluster #2 does not exist in the last table it is just because we created a cluster with no quotes in it by mistake... if yu didn't notice it, this is not so important.
 
 ## BERT
+
 Where we find it  
 Did we modify it ?  
 Write about internal preprocessing  
 
 
-## First results
+## Results
 We present here the different results: the "proof-of-concept" classification, followed by the 20 classes classification, and an extra step ;)
 
 #### Proof-of-concept
