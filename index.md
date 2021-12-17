@@ -90,7 +90,41 @@ By applying our filtering criterions on the external dataset, we find that there
 
 We selectected an amount we can sort by hand = 280, this correspond to a treshold of occurencies > 1000. The downside is that we loose a lot of occupation just because we can't sort them by hand. We would need another unpaid assistant to do it for us... and we will come back later to that.
 
-To define some clusters we looked at those publications [here](https://repository.library.georgetown.edu/handle/10822/559298)[^2] and [there](https://www.leyden212.org/Page/4244) about Career Clusters. Based on that we build two tables:
+To define some clusters we looked at those publications [here](https://repository.library.georgetown.edu/handle/10822/559298)[^2] and [there](https://www.leyden212.org/Page/4244) about Career Clusters. Based on that we build two tables:  
+
+This one is for the proof-of-concept of our classifier:
+
+| Cluster | Label | Meaning | Number of occurencies |
+|-------|--------|---------|---------|
+| 0 | Research | Research and science related careers | 2,372,330 |
+| 1 | Politics | Government related careers | 6,928,891 |
+| 2 | Sports | Sport related careers | 13,237,461 |
+| 3 | Arts | Artists and creator related careers | 2,421,718 |
+
+This one is the one we want to achieve at the end
+
+| Cluster | Label | Meaning | Number of occurencies |
+|-------|--------|---------|---------|
+| 0 | Other| NaN careers | 2,167,753|
+| 1 | AFNR | Agriculture, Food and Natural Resources careers | 9,891 |
+| 3 | AAVTC | Arts, Audio/Video Technology and Communications careers | 2,649,277 |
+| 4 | BMA | Business Management and Administration careers | 961,273 |
+| 5 | ET | Education and Training careers | 14,009,216 |
+| 6 | F | Finance careers | 275,615 |
+| 7 | GPA | Government and Public Administration careers | 6,491,038 |
+| 8 | HS | Health Science careers | 46,010 |
+| 9 | HumS | Human Services careers | 111,482 |
+| 10 | IT | Information Technology careers | 14,356 |
+| 11 | LPSCS | Law, Public Safety, Corrections, and Security careers | 639,833 |
+| 12 | M | Manufacturing careers | 129,037 |
+| 13 | MSS | Marketing, Sales, and Service careers | 97,653 |
+| 14 | STEM | Science, Technology, Engineering, and Mathematics careers | 2,152,432 |
+| 15 | R | Religion related careers | 173,688 |
+| 16 | AT | Academic and Teacher related careers | 177,524 |
+| 17 | J | Journalism related careers | 839,391 |
+| 18 | MW | Military and War related careers | 179,833 |
+| 19 | AS | Aircraft and Space careers | 24,947 |
+| 20 | NoOcc | Not clustered careers | 1365 |
 
 
 
