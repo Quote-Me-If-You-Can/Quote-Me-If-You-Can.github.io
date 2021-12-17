@@ -12,7 +12,11 @@ This pretrained algorithm not only made occupation clustering automatically, but
 
 Sentence-BERT was used to cluster 6800 occupations into 10 defined clusters, by stating for each occupation 10 hypotheses and taking clustering each to the maximum prediction confidence of this algorithm. The plot below shows the distribution of the prediction confidence for each cluster over the filtered additional dataset.
 
-
+<figure>
+    <p align="center">
+    <img title="Quobert.PNG" width="400px" src="img/Quobert.PNG">
+    </p>
+</figure>
 
 ## ML for 10 clusters
 
