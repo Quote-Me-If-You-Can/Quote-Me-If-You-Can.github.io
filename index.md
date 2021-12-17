@@ -34,18 +34,17 @@ Based on this statement: give us a quote, and we will tell you which profession 
 
 
 ## Dataset
-The full dataset is extracted from[^3]
+We do we have here ? The full dataset is made of 178 million quotations together with a list of possible speaker ranked by probability, the name of the most probable speaker and its [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) qid, when it has been published, and where it has been published. The later is important because this information has been exctracted out of 162 million English news articles published between 2008 and 2020 included, so one might want to keep records of it.
+
+162 million, 178 million, but who did that ? Well it's the nice library assistant Quobert, and it does it freely. Super nice, except that it correctly attributes only about 85% of the quotations. But could you except better from un unpaid assistant ? 
+
+Here is a nice picture (taken from the paper[^3] explaining in full detail how the dataset has been collected) that could help you to grasp Quobert's workflow.
 
 <figure>
     <p align="center">
     <img title="Quobert.PNG" width="400px" src="img/Quobert.PNG">
     </p>
 </figure>
-
-* 178 mio. quotations attributed
-* 162 mio. English news btw [2008-2020]
-* Quobert: correct attributes 86.9%
-
 
 
 ## Preprocessing
@@ -270,10 +269,10 @@ _Night in the Woods_ is the only game of this cluster having a closer neighbour 
 <details>
 <summary><b>Images</b></summary>
 <ul>
+    
 <li>2017-11-11-170105.jpg. (2021, December 16). https://wallpapercave.com/w/wp3396925</li>
 <li>tenor.gif. (2021, December 16). https://media1.tenor.com/images/24eba459fc0a6e19c4d2d60ed678e2f9/tenor.gif?itemid=7219821</li>
-<li>[Quobert.PNG (2021, December 17)](https://dlab.epfl.ch/people/west/pub/Vaucher-Spitz-Catasta-West_WSDM-21.pdf)
-    
+<li>[Quobert.PNG (2021, December 17)](https://dlab.epfl.ch/people/west/pub/Vaucher-Spitz-Catasta-West_WSDM-21.pdf)<\li>
     
  </ul>
 <br>
