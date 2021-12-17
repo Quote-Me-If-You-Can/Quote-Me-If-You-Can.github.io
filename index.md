@@ -38,7 +38,7 @@ Based on this statement: give us a quote, and we will tell you which profession 
 #### Quotebank
 We do we have here ? The full dataset is made of 178 million quotations together with a list of possible speaker ranked by probability, the name of the most probable speaker and its [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) Qid, when it has been published, and where it has been published. The later is important because this information has been exctracted out of 162 million English news articles published between 2008 and 2020 included, so one might want to keep records of it.
 
-162 million, 178 million, but who did that ? Well it's the nice library assistant Quobert, and it does it freely. Here is a nice picture (taken from the paper[^3] explaining in full detail how the dataset has been collected) that could help you to grasp Quobert's workflow.
+162 million, 178 million, but who did that ? Well it's the nice library assistant Quobert, and it does it freely. Here is a nice picture (taken from [this publication](https://dlab.epfl.ch/people/west/pub/Vaucher-Spitz-Catasta-West_WSDM-21.pdf)[^1] explaining in full detail how the dataset has been collected) that could help you to grasp Quobert's workflow.
 
 <figure>
     <p align="center">
@@ -80,6 +80,9 @@ Fine, but now suppose that Harry Potter the magician was tired of figthing evil,
 This is why we remove all speaker that have more than one occupation. By doing so we remove 12% of the remining data.
 
 ## Occupation clustering
+By applying our filtering criterions on the external dataset, we find that there is 6800 different occupations in it. This is a lot. To reduced them we firstly look
+
+We found some publications [here](https://repository.library.georgetown.edu/handle/10822/559298)[^2] and [there](https://www.leyden212.org/Page/4244) about Career Clusters. Based on them we 
 
 
 
@@ -291,9 +294,10 @@ _Night in the Woods_ is the only game of this cluster having a closer neighbour 
 
 ## References<br>
 
-[^1]: [Kaggle, *Steam Reviews Dataset 2021*, 2021](https://www.kaggle.com/najzeko/steam-reviews-2021)
-[^2]: [Matteo Pagliardini, Prakhar Gupta, Martin Jaggi, *Unsupervised Learning of Sentence Embeddings using Compositional n-Gram Features*, NAACL 2018](https://github.com/epfml/sent2vec)
-[^3]: [Vaucher, T., Spitz, A., Catasta, M., & West, R. (2021, March). Quotebank: A Corpus of Quotations from a Decade of News. In Proceedings of the 14th ACM International Conference on Web Search and Data Mining (pp. 328-336).](https://dlab.epfl.ch/people/west/pub/Vaucher-Spitz-Catasta-West_WSDM-21.pdf)
+
+[^1]: [Vaucher, T., Spitz, A., Catasta, M., & West, R. (2021, March). Quotebank: A Corpus of Quotations from a Decade of News. In Proceedings of the 14th ACM International Conference on Web Search and Data Mining (pp. 328-336).](https://dlab.epfl.ch/people/west/pub/Vaucher-Spitz-Catasta-West_WSDM-21.pdf)
+[^2]: [Carnevale, A. P., Smith, N., Stone III, J. R., Kotamraju, P., Steuernagel, B., & Green, K. A. (2013). Career clusters: Forecasting demand for high school through college jobs, 2008-2018.](https://repository.library.georgetown.edu/handle/10822/559298)
+
 
 
 <details>
