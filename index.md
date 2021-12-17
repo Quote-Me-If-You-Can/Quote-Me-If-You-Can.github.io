@@ -36,9 +36,7 @@ Based on this statement: give us a quote, and we will tell you which profession 
 ## Dataset
 We do we have here ? The full dataset is made of 178 million quotations together with a list of possible speaker ranked by probability, the name of the most probable speaker and its [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) qid, when it has been published, and where it has been published. The later is important because this information has been exctracted out of 162 million English news articles published between 2008 and 2020 included, so one might want to keep records of it.
 
-162 million, 178 million, but who did that ? Well it's the nice library assistant Quobert, and it does it freely. Super nice, except that it correctly attributes only about 85% of the quotations. But could you except better from un unpaid assistant ? 
-
-Here is a nice picture (taken from the paper[^3] explaining in full detail how the dataset has been collected) that could help you to grasp Quobert's workflow.
+162 million, 178 million, but who did that ? Well it's the nice library assistant Quobert, and it does it freely. Here is a nice picture (taken from the paper[^3] explaining in full detail how the dataset has been collected) that could help you to grasp Quobert's workflow.
 
 <figure>
     <p align="center">
@@ -46,11 +44,12 @@ Here is a nice picture (taken from the paper[^3] explaining in full detail how t
     </p>
 </figure>
 
+Super nice, except that it correctly attributes only about 85% of the quotations. But could you except better from un unpaid assistant ?  
 Here is some of its failures:
 
 <figure>
     <p align="center">
-    <img title="Fails" width="400px" src="img/fail.png">
+    <img title="Fails" width="600px" src="img/fail.png">
     </p>
 </figure>
 
