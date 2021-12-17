@@ -240,6 +240,10 @@ Even though the diagonal term seems to by the higher column-wise, some columns b
     </p>
 </figure>
 
+#### Putting the pieces together
+As said before, we 
+
+
 ## Results and limitations 
 blalala
 
