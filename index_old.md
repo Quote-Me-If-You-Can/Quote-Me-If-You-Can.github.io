@@ -3,6 +3,54 @@ layout: page
 title: There is No Plan Bee Without Them
 bigimg: img/bigbee.jpg
 ---
+
+| Cluster | Label | Meaning | Number of occurencies |
+|-------|--------|---------|---------|
+| 0 | AAVTCM | Arts, Audio/Video Technology and Communications careers | 3,105,402 |
+| 1 | BMF | Business Management and Administration careers | 1,279,491 |
+| 2 | GPALPSCS | Government, Law, Security careers | 7,361,740 |
+| 3 | MSHS | Marketing, Sales and Service careers | 14,935 |
+| 4 | ATE | Academic and Teacher related careers | 440,804 |
+| 5 | ST | Sport careers | 14,622,573 |
+| 6 | SEMITHS | Science, Technology, Mathematics and Health science careers | 2,279,195 |
+| 7 | R | Religion related careers | 431,509 |
+| 8 | J | Journalism related careers | 1,207,079 |
+| 9 | MW | Military and War related careers | 408,886 |
+
+
+
+| Cluster | Label | Meaning | Number of occurencies |
+|-------|--------|---------|---------|
+| 0 | Research | Research and science related careers | 2,372,330 |
+| 1 | Politics | Government related careers | 6,928,891 |
+| 2 | Sports | Sport related careers | 13,237,461 |
+| 3 | Arts | Artists and creator related careers | 2,421,718 |
+
+
+
+| Cluster | Label | Meaning | Number of occurencies |
+|-------|--------|---------|---------|
+| 0 | Other| NaN careers | 2,167,753|
+| 1 | AFNR | Agriculture, Food and Natural Resources careers | 9,891 |
+| 3 | AAVTC | Arts, Audio/Video Technology and Communications careers | 2,649,277 |
+| 4 | BMA | Business Management and Administration careers | 961,273 |
+| 5 | ET | Education and Training careers | 14,009,216 |
+| 6 | F | Finance careers | 275,615 |
+| 7 | GPA | Government and Public Administration careers | 6,491,038 |
+| 8 | HS | Health Science careers | 46,010 |
+| 9 | HumS | Human Services careers | 111,482 |
+| 10 | IT | Information Technology careers | 14,356 |
+| 11 | LPSCS | Law, Public Safety, Corrections, and Security careers | 639,833 |
+| 12 | M | Manufacturing careers | 129,037 |
+| 13 | MSS | Marketing, Sales, and Service careers | 97,653 |
+| 14 | STEM | Science, Technology, Engineering, and Mathematics careers | 2,152,432 |
+| 15 | R | Religion related careers | 173,688 |
+| 16 | AT | Academic and Teacher related careers | 177,524 |
+| 17 | J | Journalism related careers | 839,391 |
+| 18 | MW | Military and War related careers | 179,833 |
+| 19 | AS | Aircraft and Space careers | 24,947 |
+| 20 | NoOcc | Not clustered careers | 1365 |
+
 ## Bees are dying
 #### What's up with that?
 
