@@ -102,7 +102,7 @@ One consists of 4 classes, it will be used  for the proof-of-concept of the -lat
 | 3 | Arts | Artists and creator related careers | 2'421'718 |
 
 <figure>
-    <p align="right">
+    <p align="center">
     <img title="distribution4" width="600px" src="img/distribution4.PNG">
     </p>
 </figure>
@@ -132,9 +132,8 @@ The second one consists of the 20 classes:
 | 19 | AS | Aircraft and Space careers | 24'947 |
 | 20 | NoOcc | Not clustered careers | 1365 |
 
-
 <figure>
-    <p align="right">
+    <p align="center">
     <img title="distribution20" width="600px" src="img/distribution20.PNG">
     </p>
 </figure>
@@ -208,11 +207,11 @@ We assumed that the problem came from the fact that we have to many classes. So 
 | 8 | J | Journalism related careers | 839'391 |
 | 9 | MW | Military and War related careers | 188'863 |
 
-Furthermore, after some reflexions, it seemd that the unbalanced testing set was fooling us in some ways for the interpretation of the results. Thus, this step is done with unbalaced training set but balanced testing set.  
+Furthermore, after some reflexions, it seemed that the unbalanced testing set was fooling us in some ways for the interpretation of the results. Thus, this step is done with unbalaced training set but balanced testing set.  
 
 <figure>
     <p align="center">
-    <img title="4class_loss_graph" width="400px" src="img/results/10classes_unbalanced_loss_graph.png">
+    <img title="4class_loss_graph" width="500px" src="img/results/10classes_unbalanced_loss_graph.png">
     </p>
 </figure>
 
@@ -220,15 +219,24 @@ Well, even though the scheduler thing is still not fixed (waaiiiiiit for iiiit),
 
 <figure>
     <p align="center">
-    <img title="10results" width="400px" src="img/results/Unbalanced_merged.png">
+    <img title="10results" width="500px" src="img/results/Unbalanced_merged.png">
     </p>
 </figure>
 
-
+Here, "support" states that there is 10'000 quotes/class in the test set.  
+We can see that the f1 score is low for some classes. We then decided to plot the confusion matrix of classification. And here is what we got:
 
 <figure>
     <p align="center">
-    <img title="10results" width="400px" src="img/results/confusion_matrix_unbalanced.png">
+    <img title="10results" width="600px" src="img/results/confusion_matrix_unbalanced.png">
+    </p>
+</figure>
+
+Even though the diagonal term seems to by the higher column-wise, some columns behaves as attractors. That is the classes 3,6 (GPAxLPSCS, SPORTS) and 1,2,7 (AAVTCM, BMAxF, STEMxIT). Unsurprisingly, this is correlated with the number of quote per class in the training set. The weighted loss does not correct the problem ! We have to try to pass it a balanced training set 
+
+<figure>
+    <p align="center">
+    <img title="distribution10h" width="600px" src="img/distribution10.PNG">
     </p>
 </figure>
 
