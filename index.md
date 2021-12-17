@@ -160,7 +160,7 @@ After having fed the classifier with the quotes classified following the 4-class
     </p>
 </figure>
 
-The behaviour of the curves has nothing to do with the swiss mountains; it just come from the fact that we used a scheduler to vary the lerning rate of our AdamW optimizer. But its internal clock was not well set so we find the strange behaviour. But it is fixed in the last use of the classifier.  
+The behaviour of the curves has nothing to do with the swiss mountains; it just come from the fact that we used a scheduler to vary the lerning rate of our AdamW optimizer. But its initialization was not well set and it initialized repeatidly instead of only once, so we find the strange behaviour. But it is fixed in the last use of the classifier.  
 The important point is that it learns well and fast ! Here is the roc_auc for each class:
 
 <figure>
@@ -178,13 +178,15 @@ Well, this seems nice. Just feed the classifier with the quotes classified follo
     </p>
 </figure>
 
-
+(Same problem with scheduler, wait for it). Ok, we can't assess if it is good or bad by looking at the evolution of the loss but what about the roc_auc values ?
 
 <figure>
     <p align="center">
     <img title="20class_loss_graph" width="400px" src="img/results/20classes_rocauc_values.png">
     </p>
 </figure>
+
+They are close to 0.5, which means that the classifier just classify randomly. This is super bad !
 
 #### Can we do better ?
 blalala
