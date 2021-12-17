@@ -151,7 +151,7 @@ Write about internal preprocessing
 We present here the different results: the "proof-of-concept" classification, followed by the 20 classes classification, and an extra step ;)
 
 #### Proof-of-concept
-We trained and tested with unbalanced datasets, but make use of weighted loss.   
+We trained and tested with unbalanced datasets, but make use of weighted loss. Furthermore, to save memory, we decided to crop all quotes up to 300 characters.
 After having fed the classifier with the quotes classified following the 4-classes table, and trained it for 20 minutes, we get the following results:
 
 <figure>
@@ -194,20 +194,20 @@ They are close to 0.5, which means that the classifier just classify randomly. T
 #### Can we do better ?
 We assumed that the problem came from the fact that we have to many classes. So we decided to move from 20 to only 10 classes. We merge the classes according their similarity.  Here is the new classification table:
 
-| Cluster | Label | Meaning | # of quote |
+| Cluster | Label | Meaning | # of quote before filtering| # of quote after filtering |
 |-------|--------|---------|---------|
-| 0 | AAVTCM | Arts, Audio/Video Technology and Communications careers | 2'778'314 |
-| 1 | BMAxF | Business Management and Administration careers | 1'236'888 |
-| 2 | GPAxLPSCS | Government, Law, Security careers | 7'072'268 |
-| 3 | MSSxHumS | Marketing, Sales and Service careers | 209'135 |
-| 4 | ATE | Academic and Teacher related careers | 177'524 |
-| 5 | SPORTS | Sport careers | 14'009'216 |
-| 6 | STEMxIT | Science, Technology, Mathematics and Health science careers | 2'316'481 |
-| 7 | R | Religion related careers | 173'688 |
-| 8 | J | Journalism related careers | 839'391 |
-| 9 | MW | Military and War related careers | 188'863 |
+| 0 | AAVTCM | Arts, Audio/Video Technology and Communications careers | 2'778'314 | 2'289'052 |
+| 1 | BMAxF | Business Management and Administration careers | 1'236'888 | 1'064'036 |
+| 2 | GPAxLPSCS | Government, Law, Security careers | 7'072'268 | 6'159'748 |
+| 3 | MSSxHumS | Marketing, Sales and Service careers | 209'135 | 180'941 |
+| 4 | ATE | Academic and Teacher related careers | 177'524 | 152'000 |
+| 5 | SPORTS | Sport careers | 14'009'216 | 11'593'709 |
+| 6 | STEMxIT | Science, Technology, Mathematics and Health science careers | 2'316'481 | 2'005'419 |
+| 7 | R | Religion related careers | 173'688 | 159'630 |
+| 8 | J | Journalism related careers | 839'391 | 143'374 |
+| 9 | MW | Military and War related careers | 188'863 | 678'870 |
 
-Furthermore, after some reflexions, it seemed that the unbalanced testing set was fooling us in some ways for the interpretation of the results. Thus, this step is done with unbalaced training set but balanced testing set.  
+Furthermore, after some reflexions, it seemed that the unbalanced testing set was fooling us in some ways for the interpretation of the results. Thus, this step is done with unbalaced training set but balanced testing set.  Finally, we made the assumption that quotes with # of characters < 50 were not containing relevant information and we filtered them out. This allowed us to save some space and we augmented the "crop treshold" from 300 to 400.
 
 <figure>
     <p align="center">
@@ -241,7 +241,7 @@ Even though the diagonal term seems to by the higher column-wise, some columns b
 </figure>
 
 #### Putting the pieces together
-As said before, we 
+As said before, we decided as final step to balance the training set. The bottleneck class is `Journalism` with 143'374 quotes. We build a final training set containing 72'000 quotes of each class and a test set 
 
 
 ## Results and limitations 
