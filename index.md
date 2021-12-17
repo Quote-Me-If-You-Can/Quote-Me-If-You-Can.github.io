@@ -52,7 +52,7 @@ Here is some of its failures:
 
 <figure>
     <p align="center">
-    <img title="Fails" width="600px" src="img/fail.png">
+    <img title="Fails" width="800px" src="img/fail.png">
     </p>
 </figure>
 
