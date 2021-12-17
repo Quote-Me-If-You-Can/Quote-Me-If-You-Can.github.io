@@ -6,18 +6,18 @@ bigimg: img/bigbee.jpg
 
 ## ML for 10 clusters
 
-| Cluster | Label | Meaning | Number of occurencies |
-|-------|--------|---------|---------|
-| 0 | AAVTCM | Arts, Audio/Video Technology and Communications careers | 3,105,402 |
-| 1 | BMF | Business Management and Administration careers | 1,279,491 |
-| 2 | GPALPSCS | Government, Law, Security careers | 7,361,740 |
-| 3 | MSHS | Marketing, Sales and Service careers | 14,935 |
-| 4 | ATE | Academic and Teacher related careers | 440,804 |
-| 5 | ST | Sport careers | 14,622,573 |
-| 6 | SEMITHS | Science, Technology, Mathematics and Health science careers | 2,279,195 |
-| 7 | R | Religion related careers | 431,509 |
-| 8 | J | Journalism related careers | 1,207,079 |
-| 9 | MW | Military and War related careers | 408,886 |
+            | Cluster | Label | Meaning | Number of occurencies |
+            |-------|--------|---------|---------|
+            | 0 | AAVTCM | Arts, Audio/Video Technology and Communications careers | 3,105,402 |
+            | 1 | BMF | Business Management and Administration careers | 1,279,491 |
+            | 2 | GPALPSCS | Government, Law, Security careers | 7,361,740 |
+            | 3 | MSHS | Marketing, Sales and Service careers | 14,935 |
+            | 4 | ATE | Academic and Teacher related careers | 440,804 |
+            | 5 | ST | Sport careers | 14,622,573 |
+            | 6 | SEMITHS | Science, Technology, Mathematics and Health science careers | 2,279,195 |
+            | 7 | R | Religion related careers | 431,509 |
+            | 8 | J | Journalism related careers | 1,207,079 |
+            | 9 | MW | Military and War related careers | 408,886 |
 
 ## Manual 10 clusters
 
