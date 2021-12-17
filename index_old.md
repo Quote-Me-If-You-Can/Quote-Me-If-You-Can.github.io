@@ -4,6 +4,8 @@ title: There is No Plan Bee Without Them
 bigimg: img/bigbee.jpg
 ---
 
+## ML for 10 clusters
+
 | Cluster | Label | Meaning | Number of occurencies |
 |-------|--------|---------|---------|
 | 0 | AAVTCM | Arts, Audio/Video Technology and Communications careers | 3,105,402 |
@@ -17,6 +19,20 @@ bigimg: img/bigbee.jpg
 | 8 | J | Journalism related careers | 1,207,079 |
 | 9 | MW | Military and War related careers | 408,886 |
 
+## Manual 10 clusters
+
+| Cluster | Label | Meaning | Number of occurencies |
+|-------|--------|---------|---------|
+| 0 | AAVTCM | Arts, Audio/Video Technology and Communications careers | 2,778,314 |
+| 1 | BMAxF | Business Management and Administration careers | 1,236,888 |
+| 2 | GPAxLPSCS | Government, Law, Security careers | 7,072,268 |
+| 3 | MSSxHumS | Marketing, Sales and Service careers | 209,135 |
+| 4 | ATE | Academic and Teacher related careers | 177,524 |
+| 5 | SPORTS | Sport careers | 14,009,216 |
+| 6 | STEMxIT | Science, Technology, Mathematics and Health science careers | 2,316,481 |
+| 7 | R | Religion related careers | 173,688 |
+| 8 | J | Journalism related careers | 839,391 |
+| 9 | MW | Military and War related careers | 188,863 |
 
 
 | Cluster | Label | Meaning | Number of occurencies |
