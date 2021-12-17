@@ -14,7 +14,7 @@ Sentence-BERT was used to cluster 6800 occupations into 10 defined clusters, by 
 
 <figure>
     <p align="center">
-    <img title="Quobert.PNG" width="400px" src="img/Quobert.PNG">
+    <img title="Prediction Confidence of Sequence-BERT.PNG" width="400px" src="img/prediction_confidence.PNG">
     </p>
 </figure>
 
