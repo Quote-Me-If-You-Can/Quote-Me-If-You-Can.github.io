@@ -88,9 +88,10 @@ By applying our filtering criterions on the external dataset, we find that there
     </p>
 </figure>
 
-To reduced them we firstly look
+We selectected an amount we can sort by hand = 280, this correspond to a treshold of occurencies > 1000. The downside is that we loose a lot of occupation just because we can't sort them by hand. We would need another unpaid assistant to do it for us... and we will come back later to that.
 
-We found some publications [here](https://repository.library.georgetown.edu/handle/10822/559298)[^2] and [there](https://www.leyden212.org/Page/4244) about Career Clusters. Based on them we 
+To define some clusters we looked at those publications [here](https://repository.library.georgetown.edu/handle/10822/559298)[^2] and [there](https://www.leyden212.org/Page/4244) about Career Clusters. Based on that we build two tables:
+
 
 
 
