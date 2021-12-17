@@ -89,7 +89,7 @@ By applying our filtering criterions on the external dataset, we find that there
     </p>
 </figure>
 
-We selectected an amount we can sort by hand = 280 (even though it is still a piece of work), this correspond to a treshold of occurencies > 1000. The downside is that we loose a lot of occupation just because we can't sort them by hand. We would need another unpaid assistant to do it for us... and we will come back later to that. Those "unclustered" occupations are gathered in `Other`. There was some "nan" occupation that survived the df.dropna() because they were of type string. We store those in `NoOcc`.
+We selectected an amount we can sort by hand = 280 (even though it is still a piece of work), this correspond to a treshold of occurencies > 1000. The downside is that we loose a lot of occupation just because we can't sort them by hand. We would need another unpaid assistant to do it for us... and we will come back later to that. Those "unclustered" occupations are gathered in `Other`. There was some "nan" occupation that survived the df.dropna() because they were of type string. We store those in `NoOcc`. The later class won't be use on the next step. It can be seen as a garbage class. 
 
 To define some clusters we looked at those publications [here](https://repository.library.georgetown.edu/handle/10822/559298)[^2] and [there](https://www.leyden212.org/Page/4244) about Career Clusters. After that, we classified by hand our occupations with occurencies > 1000 in similar clusters and assign our quotations to unique occupation. (recall: 1 quotation >> a unique Qid speaker >> a sole occupation). We build two new datasets:  
 One consists of 4 classes, it will be used  for the proof-of-concept of the -later explained- BERT-based classifier:
@@ -152,6 +152,7 @@ Write about internal preprocessing
 We present here the different results: the "proof-of-concept" classification, followed by the 20 classes classification, and an extra step ;)
 
 #### Proof-of-concept
+We trained and tested with unbalanced datasets, but make use of weighted loss.   
 After having fed the classifier with the quotes classified following the 4-classes table, and trained it for 20 minutes, we get the following results:
 
 <figure>
@@ -165,12 +166,15 @@ The important point is that it learns well and fast ! Here is the roc_auc for ea
 
 <figure>
     <p align="center">
-    <img title="4class_loss_graph" width="400px" src="img/results/4classes_rocauc_values.png">
+    <img title="4results" width="400px" src="img/results/4classes_rocauc_values.png">
     </p>
 </figure>
 
+"Amount of class*" states the number of quote belonging to this class in the test set. As said before, it is unbalanced.  
+The results seems convincing. Next step: just feed the classifier with the quotes classified following the 20-classes table, run it for 8-10h and that's it! 
+
 #### 20 classes
-Well, this seems nice. Just feed the classifier with the quotes classified following the 20-classes table, run it for 8-10h and that's it! 
+We trained and tested with unbalanced datasets, but make use of weighted loss. After having trained for about 9h, we get the following results:
 
 <figure>
     <p align="center">
@@ -182,14 +186,51 @@ Well, this seems nice. Just feed the classifier with the quotes classified follo
 
 <figure>
     <p align="center">
-    <img title="20class_loss_graph" width="400px" src="img/results/20classes_rocauc_values.png">
+    <img title="20results" width="400px" src="img/results/20classes_rocauc_values.png">
     </p>
 </figure>
 
 They are close to 0.5, which means that the classifier just classify randomly. This is super bad !
 
 #### Can we do better ?
-blalala
+We assumed that the problem came from the fact that we have to many classes. So we decided to move from 20 to only 10 classes. We merge the classes according their similarity.  Here is the new classification table:
+
+| Cluster | Label | Meaning | # of quote |
+|-------|--------|---------|---------|
+| 0 | AAVTCM | Arts, Audio/Video Technology and Communications careers | 2'778'314 |
+| 1 | BMAxF | Business Management and Administration careers | 1'236'888 |
+| 2 | GPAxLPSCS | Government, Law, Security careers | 7'072'268 |
+| 3 | MSSxHumS | Marketing, Sales and Service careers | 209'135 |
+| 4 | ATE | Academic and Teacher related careers | 177'524 |
+| 5 | SPORTS | Sport careers | 14'009'216 |
+| 6 | STEMxIT | Science, Technology, Mathematics and Health science careers | 2'316'481 |
+| 7 | R | Religion related careers | 173'688 |
+| 8 | J | Journalism related careers | 839'391 |
+| 9 | MW | Military and War related careers | 188'863 |
+
+Furthermore, after some reflexions, it seemd that the unbalanced testing set was fooling us in some ways for the interpretation of the results. Thus, this step is done with unbalaced training set but balanced testing set.  
+
+<figure>
+    <p align="center">
+    <img title="4class_loss_graph" width="400px" src="img/results/10classes_unbalanced_loss_graph.png">
+    </p>
+</figure>
+
+Well, even though the scheduler thing is still not fixed (waaiiiiiit for iiiit), those loss curves are kind of impossible to interpret in any ways. We can look at extended performance metrics:
+
+<figure>
+    <p align="center">
+    <img title="10results" width="400px" src="img/results/Unbalanced_merged.png">
+    </p>
+</figure>
+
+
+
+<figure>
+    <p align="center">
+    <img title="10results" width="400px" src="img/results/confusion_matrix_unbalanced.png">
+    </p>
+</figure>
 
 ## Results and limitations 
 blalala
