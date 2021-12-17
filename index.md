@@ -274,6 +274,21 @@ Great ! Problem fixed :)
 
 ## Room for improvement
 
+We finally got a unpaid assistant working for the occupation classification. We did not have time to use it in the classification process. 
+
+#### Sentence-BERT algorithm for occupation clustering
+
+[Sentence-BERT](https://joeddav.github.io/blog/2020/05/29/ZSL.html) is a recent technique which fine-tunes the pooled BERT sequence representations for increased semantic richness, as a method for obtaining sequence and label embeddings.
+
+This pretrained algorithm not only made occupation clustering automatically, but also clustered all the 6800 unique occupations !
+
+Sentence-BERT was used to cluster 6800 occupations into 10 defined clusters, by stating for each occupation 10 hypotheses and taking clustering each to the maximum prediction confidence of this algorithm. The plot below shows the distribution of the prediction confidence for each cluster over the filtered additional dataset.
+
+<figure>
+    <p align="center">
+    <img title="Prediction Confidence of Sequence-BERT" width="800px" src="img/prediction_confidence_SequenceBERT.png">
+    </p>
+</figure>
 
 ## References<br>
 
