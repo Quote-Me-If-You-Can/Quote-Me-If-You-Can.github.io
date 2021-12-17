@@ -22,7 +22,7 @@ Based on this statement: give us a quote, and we will tell you which profession 
 ## Table of Contents
 
 - [Datasets](#datasets)
-- [Preprocessing](#preprocessing)
+- [Filtering](#filtering)
 - [Occupation clustering](#occupation-clustering)
 - [BERT](#bert)
 - [First results](#first-results)
@@ -34,7 +34,6 @@ Based on this statement: give us a quote, and we will tell you which profession 
 
 
 ## Datasets   
-  
   
 #### Quotebank
 We do we have here ? The full dataset is made of 178 million quotations together with a list of possible speaker ranked by probability, the name of the most probable speaker and its [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) Qid, when it has been published, and where it has been published. The later is important because this information has been exctracted out of 162 million English news articles published between 2008 and 2020 included, so one might want to keep records of it.
@@ -78,16 +77,11 @@ By doing so we dealt with both the "homonym issue" and the "empty speaker issue"
 </figure>
 
 Fine, but now suppose that Harry Potter the magician was tired of figthing evil, and after all, You-Know-Who has been defeated in 2011 so... He decided to start a career as a journalist at the renown "The Daily Prophet" newspaper. We now have Harry Potter the magician and Harry Potter the journalist (it is the same person now). So how do we know that his quotes are those of a magician or those of a journalist ?  
-This is why we remove all speaker that have more than one occupation. By doing so we remove 20%
-
-
-() to  James Fisher is not unique, which leads to many Qids. On the other hand, we deal with missing values: some speakers are "None". By doing so, we reduce the data size by 50%. For a full year, we have in average 22 million quotes. It then remains 11 million quotes per year, which should be enough.
-Sometimes even if argmax(Probability(speaker)) < 0.5, a speaker is still assigned. We didn't care about that at first glance, since it happens that argmax(Probability(speaker)) > 0.75 but assigned speaker is wrong.
-
-This is because the algorithm we will use later has its own internal preprocessing.
+This is why we remove all speaker that have more than one occupation. By doing so we remove 12% of the remining data.
 
 ## Occupation clustering
-blalala
+
+
 
 ## BERT
 blalala
