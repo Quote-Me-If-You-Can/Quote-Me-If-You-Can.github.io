@@ -26,7 +26,7 @@ Based on this statement: give us a quote, and we will tell you which profession 
 - [Occupation clustering](#occupation-clustering)
 - [BERT](#bert)
 - [First results](#first-results)
-- [Can we do better ?](#can-we-do-better)
+- [Can we do better ?](#can-we-do-better-?)
 - [Results and limitations](#results-and-limitations)
 - [Room for improvement](#room-for-improvement)
 - [References](#references)
@@ -101,6 +101,12 @@ This one is for the proof-of-concept of our classifier:
 | 2 | Sports | Sport related careers | 13'237'461 |
 | 3 | Arts | Artists and creator related careers | 2'421'718 |
 
+<figure>
+    <p align="right">
+    <img title="distribution4" width="600px" src="img/distribution4.PNG">
+    </p>
+</figure>
+
 This one is the one we want to achieve at the end
 
 | Cluster | Label | Meaning | # of available quote|
@@ -127,7 +133,13 @@ This one is the one we want to achieve at the end
 | 20 | NoOcc | Not clustered careers | 1365 |
 
 
+<figure>
+    <p align="right">
+    <img title="distribution20" width="600px" src="img/distribution20.PNG">
+    </p>
+</figure>
 
+If you noticed that the cluster #2 does not exist in the last table it is just because we created a cluster with no quotes in it by mistake... if yu didn't notice it, this is not so important.
 
 ## BERT
 blalala
