@@ -68,10 +68,17 @@ We said we want to predict the occupations but did not said a word about it so f
 
 ## Filtering
 
-In the first place, we had to deal with the "homonym issue". This is because a quotation is linked to a list of names, ranked by probability, and further linked to a single name in a "winner takes it all" fashion. Once a name is elected, the name is linked to its corresponding Qid; BUT if a name has a namesake, then several Qids will be added. So how do we know that we are facing Harry Potter the magician or Harry Potter the journalist (it does not really apply in this case because there is no fictional character in Quotebank, but you got the point) ? Furthermore, if Quobert is uncertain, it just assigns "None" as speaker with an empty list of Qid.  
-To cope with those issues we simply filtered out all speakers, whose list of Qid contained more or less than 1 Qid. By doing so we dealt with both the "homonym issue" and the "empty speaker issue".  
+In the first place, we had to deal with the "homonym issue". This is because a quotation is linked to a list of names, ranked by probability, and further linked to a single name in a "winner takes it all" fashion. Once a name is elected, the name is linked to its corresponding Qid; BUT if a name has a namesake, then several Qids will be added. So how do we know that we are facing Harry Potter the magician or Harry Potter the journalist (it does not really apply in this case because there is no fictional character in Quotebank, but you got the point) ? Furthermore, if Quobert is uncertain, it just assigns "None" as speaker with an empty list of Qid.To cope with those issues we simply filtered out all speakers, whose list of Qid contained more or less than 1 Qid.  
+By doing so we dealt with both the "homonym issue" and the "empty speaker issue" and get rid of 50% of the remaining data.
 
-Fine, but now suppose that Harry Potter the magician was tired of figthing evil, and after all, You-Know-Who has been defeated in 2011 so... He decided to start a career as a journalist at the renown "The Daily Prophet" newspaper. We now have Harry Potter the magician and Harry Potter the journalist (it is the same person know)
+<figure>
+    <p align="center">
+    <img title="i love magic" width="600px" src="img/tumblr_l982reZrDD1qzcmp3o1_500.gif">
+    </p>
+</figure>
+
+Fine, but now suppose that Harry Potter the magician was tired of figthing evil, and after all, You-Know-Who has been defeated in 2011 so... He decided to start a career as a journalist at the renown "The Daily Prophet" newspaper. We now have Harry Potter the magician and Harry Potter the journalist (it is the same person now). So how do we know that his quotes are those of a magician or those of a journalist ?  
+This is why we remove all speaker that have more than one occupation. By doing so we remove 20%
 
 
 () to  James Fisher is not unique, which leads to many Qids. On the other hand, we deal with missing values: some speakers are "None". By doing so, we reduce the data size by 50%. For a full year, we have in average 22 million quotes. It then remains 11 million quotes per year, which should be enough.
