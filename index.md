@@ -34,7 +34,13 @@ Based on this statement: give us a quote, and we will tell you which profession 
 
 
 ## Dataset
-The dataset is extracted from[^3]
+The full dataset is extracted from[^3]
+
+* 178 mio. quotations attributed
+* 162 mio. English news btw [2008-2020]
+* Quobert: correct attributes 86.9%
+
+
 
 ## Preprocessing
 wewewewe
@@ -260,6 +266,7 @@ _Night in the Woods_ is the only game of this cluster having a closer neighbour 
 <ul>
 <li>2017-11-11-170105.jpg. (2021, December 16). https://wallpapercave.com/w/wp3396925</li>
 <li>tenor.gif. (2021, December 16). https://media1.tenor.com/images/24eba459fc0a6e19c4d2d60ed678e2f9/tenor.gif?itemid=7219821</li>
+<li>[Quobert.PNG (2021, December 17)](https://dlab.epfl.ch/people/west/pub/Vaucher-Spitz-Catasta-West_WSDM-21.pdf)
     
     
  </ul>
