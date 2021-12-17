@@ -241,7 +241,30 @@ Even though the diagonal term seems to by the higher column-wise, some columns b
 </figure>
 
 #### Putting the pieces together
-As said before, we decided as final step to balance the training set. The bottleneck class is `Journalism` with 143'374 quotes. We build a final training set containing 72'000 quotes of each class and a test set 
+As said before, we decided as final step to balance the training set. The bottleneck class is `Journalism` with 143'374 quotes. We build a final training set containing 72'000 quotes of each class and a test set containg 72'000 quotes of each class as well.  
+Good news, we fixed the scheduler as well. Here is our loss curves :
+
+<figure>
+    <p align="center">
+    <img title="4class_loss_graph" width="500px" src="img/results/10classes_balanced_loss_graph.png">
+    </p>
+</figure>
+
+
+<figure>
+    <p align="center">
+    <img title="10results" width="500px" src="img/results/Balanced_merged.png">
+    </p>
+</figure>
+
+
+<figure>
+    <p align="center">
+    <img title="10results" width="600px" src="img/results/confusion_matrix_balanced.png">
+    </p>
+</figure>
+
+
 
 
 ## Results and limitations 
