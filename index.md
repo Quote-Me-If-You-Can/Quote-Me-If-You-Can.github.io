@@ -77,7 +77,7 @@ By doing so we dealt with both the "homonym issue" and the "empty speaker issue"
 </figure>
 
 Fine, but now suppose that Harry Potter the magician was tired of figthing evil, and after all, You-Know-Who has been defeated in 2011 so... He decided to start a career as a journalist at the renown "The Daily Prophet" newspaper. We now have Harry Potter the magician and Harry Potter the journalist (it is the same person now). So how do we know that his quotes are those of a magician or those of a journalist ?  
-This is why we remove all speaker that have more than one occupation. By doing so we remove 12% of the remining data.
+This is why we remove all speaker that have more than one occupation. By doing so we remove 12% of the remaining data.
 
 ## Occupation clustering
 By applying our filtering criterions on the external dataset, we find that there is 6800 different occupations in it. This is a lot. Here is a look at the distribution of occurencies of occupations:
@@ -92,7 +92,7 @@ We selectected an amount we can sort by hand = 280 (even though it is still a pi
 
 To define some clusters we looked at those publications [here](https://repository.library.georgetown.edu/handle/10822/559298)[^2] and [there](https://www.leyden212.org/Page/4244) about Career Clusters. Based on that we build two tables:  
 
-This one is for the proof-of-concept of our classifier:
+This one is for the proof-of-concept of the -later explained- BERT-based classifier:
 
 | Cluster | Label | Meaning | # of available quote|
 |-------|--------|---------|---------|
@@ -142,10 +142,28 @@ This one is the one we want to achieve at the end
 If you noticed that the cluster #2 does not exist in the last table it is just because we created a cluster with no quotes in it by mistake... if yu didn't notice it, this is not so important.
 
 ## BERT
-blalala
+Where we find it
+Did we modify it ?
+Write about internal preprocessing
+
 
 ## First results
-blalala
+After having feed the classifier with the quotes clustered following the 4-classes table, and trained it for 20 minutes, we get the following results:
+
+<figure>
+    <p align="left">
+    <img title="4class_loss_graph" width="400px" src="img/results/4classes_loss_graph.png">
+    </p>
+</figure>
+
+The behaviour of the curves has nothing to do with the swiss mountains; it just come from the fact that we used a scheduler to vary the lerning rate of our AdamW optimizer. But its internal clock was not well set so we find the strange behaviour. But it is fixed in the last use of the classifier.  
+The important point is that it learns well and fast ! Here is the roc_auc for each class:
+
+<figure>
+    <p align="centered">
+    <img title="4class_loss_graph" width="400px" src="img/results/4classes_rocauc_values.png">
+    </p>
+</figure>
 
 ## Can we do better ?
 blalala
