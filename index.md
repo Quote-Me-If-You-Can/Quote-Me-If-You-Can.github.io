@@ -46,6 +46,15 @@ Here is a nice picture (taken from the paper[^3] explaining in full detail how t
     </p>
 </figure>
 
+Here is some of its failures:
+
+<figure>
+    <p align="center">
+    <img title="Quobert.PNG" width="400px" src="img/fail.pnj">
+    </p>
+</figure>
+
+[The Harry Potter he refers to is an Australian journalist](https://en.wikipedia.org/wiki/Harry_Potter_(journalist))
 
 ## Preprocessing
 wewewewe
