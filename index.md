@@ -14,8 +14,9 @@ Ever heard of [Catch Me If You Can](https://en.wikipedia.org/wiki/Catch_Me_If_Yo
     </p>
 </figure>
 
-For the uniform it is quite obvious, but what can we say about the lingo ? One will agree that each occupation has its « proper words », but a person of a specific profession will also express himself in a certain manner. Think of a politician, she does not only speaks about economy and education, but also uses some figure of speech, and her discourse is fluid and well conducted (this might be hard to catch in a quote, but it is an example).  
-From this observation, we would like to see if it is possible to guess the profession of someone based on his quotations ?
+For the uniform it is quite obvious, but what can we say about the lingo ? One will agree that each occupation has its « proper words », but let's think further, a person of a specific profession will also express himself in a certain manner. Think of a politician, he does not only speaks about economy and education, but also uses some figure of speech, and his discourse is fluid and well conducted; rather of a sportsman or a scientist, for exemple.  
+
+Based on this statement: give us a quote, and we will tell you which profession said it ! 
 
 
 ## Table of Contents
@@ -33,7 +34,7 @@ From this observation, we would like to see if it is possible to guess the profe
 
 
 ## Dataset
-lalala
+The dataset is extracted from[^3]
 
 ## Preprocessing
 wewewewe
@@ -251,6 +252,7 @@ _Night in the Woods_ is the only game of this cluster having a closer neighbour 
 
 [^1]: [Kaggle, *Steam Reviews Dataset 2021*, 2021](https://www.kaggle.com/najzeko/steam-reviews-2021)
 [^2]: [Matteo Pagliardini, Prakhar Gupta, Martin Jaggi, *Unsupervised Learning of Sentence Embeddings using Compositional n-Gram Features*, NAACL 2018](https://github.com/epfml/sent2vec)
+[^3]: [Vaucher, T., Spitz, A., Catasta, M., & West, R. (2021, March). Quotebank: A Corpus of Quotations from a Decade of News. In Proceedings of the 14th ACM International Conference on Web Search and Data Mining (pp. 328-336).
 
 
 <details>
