@@ -54,7 +54,8 @@ Here is some of its failures:
     </p>
 </figure>
 
-[The Harry Potter he refers to is an Australian journalist](https://en.wikipedia.org/wiki/Harry_Potter_(journalist))
+* The Harry Potter he refers to is an [Australian journalist](https://en.wikipedia.org/wiki/Harry_Potter_(journalist)).
+* Joe Bidden does not like himself so much.
 
 ## Preprocessing
 wewewewe
