@@ -236,7 +236,7 @@ Even though the diagonal term seems to by the higher column-wise, some columns b
 
 <figure>
     <p align="center">
-    <img title="distribution10h" width="600px" src="img/distribution10.PNG">
+    <img title="distribution10h" width="600px" src="img/distribution10h.PNG">
     </p>
 </figure>
 
