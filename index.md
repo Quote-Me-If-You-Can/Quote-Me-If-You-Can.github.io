@@ -37,7 +37,7 @@ We present the two main datasets used in this project. You can access them via t
 
 What do we have here? The full dataset consists of 178 million quotations, along with a list of possible speakers ranked by probability, the name of the most likely speaker, and their [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) QID (when available), as well as when and where the quotation was published. The latter is particularly important because this information was extracted from 162 million English news articles published between 2008 and 2020, so one might want to keep a record of it.
 
-162 million, 178 million—but who did all that? Well, it’s thanks to the helpful library assistant, Quobert, and it does it all for free. Here's a helpful image (taken from [this publication](https://dlab.epfl.ch/people/west/pub/Vaucher-Spitz-Catasta-West_WSDM-21.pdf)[^1]) that explains in full detail how the dataset was collected and might help you better understand Quobert's workflow.
+162 million, 178 million—but who did all that? Well, it’s thanks to the helpful library assistant, Quobert, and it does it all for free! Here's a helpful image[^1] that explains in full detail how the dataset was collected and might help you better understand Quobert's workflow.
 
 <figure>
     <p align="center">
@@ -55,19 +55,18 @@ Here are some examples of its failures:
 </figure>
 
 * The Harry Potter he refers to is an [Australian journalist](https://en.wikipedia.org/wiki/Harry_Potter_(journalist)).
-* Joe Bidden does not like himself so much.
+* One can doubt that Joe Biden would talk about himself in this way.
 
-But this will be good enough for our purpose. Just keep in mind that Quobert is an unpaid assistant.  
-Furthermore, for this project, we did not use the full Quotebank but only the years 2015-2020 included.
+But this will be good enough for our purposes. Just keep in mind that Quobert is an unpaid assistant.
+Furthermore, for this project, we did not use the entire Quotebank; we only utilized the data from 2015 to 2020.
 
 #### External sources
-We said we want to predict the occupations but did not said a word about it so far... Quotebank is augmented using metadata about the speakers. It an external dataset we will find for ~9M Wikidata entities some additional information as occupation, gender, religion, etc.
+We mentioned that we want to predict the occupations, but we haven't said much about it so far. Quotebank is augmented using metadata about the speakers. We have an external dataset that provides additional information—such as occupation, gender, religion, etc.—for approximately 9 million Wikidata entities.
 
 
 ## Filtering
 
-In the first place, we had to deal with the "homonym issue". This is because a quotation is linked to a list of names, ranked by probability, and further linked to a single name in a "winner takes it all" fashion. Once a name is elected, the name is linked to its corresponding Qid; BUT if a name has a namesake, then several Qids will be added. So how do we know that we are facing Harry Potter the magician or Harry Potter the journalist (it does not really apply in this case because there is no fictional character in Quotebank, but you got the point) ? Furthermore, if Quobert is uncertain, it just assigns "None" as speaker with an empty list of Qid.To cope with those issues we simply filtered out all speakers, whose list of Qid contained more or less than 1 Qid.  
-By doing so we dealt with both the "homonym issue" and the "empty speaker issue" and get rid of 50% of the remaining data.
+First, we had to address the "homonym issue." This arises because each quotation is linked to a list of names ranked by probability, which is then connected to a single name in a "winner-takes-all" fashion. Once a name is selected, it is linked to its corresponding QID. However, if a name has a namesake, multiple QIDs may be associated with it. So, how do we differentiate between Harry Potter the magician and Harry Potter the journalist? (Although this doesn't directly apply in this case since there are no fictional characters in Quotebank, you get the point.) Furthermore, if Quobert is uncertain, it simply assigns "None" as the speaker, resulting in an empty list of QIDs. To address these issues, we filtered out all speakers whose list of QIDs contained either more or less than one QID. By doing so, we tackled both the "homonym issue" and the "empty speaker issue," ultimately eliminating 50% of the remaining data.
 
 <figure>
     <p align="center">
@@ -75,12 +74,13 @@ By doing so we dealt with both the "homonym issue" and the "empty speaker issue"
     </p>
 </figure>
 
-Fine, but now suppose that Harry Potter the magician was tired of figthing evil, and after all, You-Know-Who has been defeated in 2011 so... He decided to start a career as a journalist at the renown "The Daily Prophet" newspaper. We now have Harry Potter the magician and Harry Potter the journalist (it is the same person now). So how do we know that his quotes are those of a magician or those of a journalist ? 
-This is why we remove all speaker that have more than one occupation. By doing so we remove 12% of the remaining data.
+Now, suppose that Harry Potter the magician grew tired of fighting evil, especially since You-Know-Who was defeated in 2011. He decided to start a career as a journalist at the renowned Daily Prophet newspaper. We now have both Harry Potter the magician and Harry Potter the journalist, which are technically the same person. So, how do we determine whether his quotes are those of a magician or those of a journalist?
+
+This is why we remove all speakers who have more than one occupation. By doing so, we eliminate 12% of the remaining data.
 
 ## Occupation clustering
 
-By applying our filtering criterions on the external dataset, we find that there is 6800 different occupations in it. This is a lot. Here is a look at the distribution of occurencies of occupations:
+By applying our filtering criteria to the external dataset, we find that there are 6,800 different occupations within it. This is quite a lot. Here’s a look at the distribution of occurrences of these occupations:
 
 <figure>
     <p align="center">
