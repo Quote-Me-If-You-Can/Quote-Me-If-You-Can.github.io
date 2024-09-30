@@ -25,8 +25,8 @@ Based on this, give us a quote, and we’ll tell you which profession said it!
 - [Occupation clustering](#occupation-clustering)
 - [BERT](#bert)
 - [Results](#results)
-- [Room for improvement](#room-for-improvement)
 - [Conclusion](#conclusion)
+- [Room for improvement](#room-for-improvement)
 - [References](#references)
 
 ## Datasets   
@@ -88,10 +88,11 @@ By applying our filtering criteria to the external dataset, we find that there a
     </p>
 </figure>
 
-We selectected an amount we can sort by hand = 280 (even though it is still a piece of work), this correspond to a treshold of occurencies > 1000. The downside is that we loose a lot of occupation just because we can't sort them by hand. We would need another unpaid assistant to do it for us... and we will come back later to that. Those "unclustered" occupations are gathered in `Other`. There was some "nan" occupation that survived the df.dropna() because they were of type string. We store those in `NoOcc`. The later class won't be use on the next step. It can be seen as a garbage class. 
+We selected a manageable number of occupations to sort by hand: 280 (though it's still quite a bit of work). This corresponds to a threshold of occurrences greater than 1,000. The downside is that we lose many occupations simply because we can't sort them manually. We would need another unpaid assistant to help with that, but this resource became available in a later step of the project, as discussed in [this section](#room-for-improvement). The "unclustered" occupations are grouped under `Other`. There were some "NaN" occupations that survived the `df.dropna()` method because they were of type string. We store those in `NoOcc`. The latter class won't be used in the next step and can be considered a garbage class.
 
-To define some clusters we looked at those publications [here](https://repository.library.georgetown.edu/handle/10822/559298)[^2] and [there](https://www.leyden212.org/Page/4244) about Career Clusters. After that, we classified by hand our occupations with occurencies > 1000 in similar clusters and assign our quotations to unique occupation. (recall: 1 quotation >> a unique Qid speaker >> a sole occupation). We build two new datasets:  
-One consists of 4 classes, it will be used  for the proof-of-concept of the -later explained- BERT-based classifier:
+To define some clusters, we examined the publications [here](https://repository.library.georgetown.edu/handle/10822/559298)[^2] and [there](https://www.leyden212.org/Page/4244) regarding Career Clusters. After that, we manually classified our occupations with occurrences greater than 1,000 into similar clusters and assigned our quotations to a unique occupation. (Recall: 1 quotation >> 1 unique QID speaker >> 1 sole occupation.) We built two new datasets:
+
+One consists of 4 classes and will be used for the proof of concept of the BERT-based classifier, which will be explained later.
 
 | Cluster | Label | Meaning | # of quote|
 |-------|--------|---------|---------|
@@ -106,7 +107,7 @@ One consists of 4 classes, it will be used  for the proof-of-concept of the -lat
     </p>
 </figure>
 
-The second one consists of the 20 classes:
+The second dataset consists of 20 classes:
 
 | Cluster | Label | Meaning | # of quote|
 |-------|--------|---------|---------|
@@ -137,25 +138,25 @@ The second one consists of the 20 classes:
     </p>
 </figure>
 
-If you noticed that the cluster #2 does not exist in the last table it is just because we created a cluster with no quotes in it by mistake... if yu didn't notice it, this is not so important.
+If you noticed that cluster #2 does not exist in the last table, it is simply because we mistakenly created a cluster with no quotes in it. If you didn’t notice it, then it’s not particularly important.
 
 ## BERT
 
-We used pretrained BERT-Base model (BertTokenizer and BertModel with 768 hidden layers, introduced in this paper). We add one fully connected layer with 10 output dimensions. BertTokenizer transforms input string into tokens, then BertModel returns 768-dimensional representation of input string. Further, added layer produce 10 values which after applying sigmoid function predict the probabilities of each class.
+We used the pretrained BERT-Base model. We added one fully connected layer with 10 output dimensions. The BertTokenizer transforms the input string into tokens, and then the BertModel returns a 768-dimensional representation of the input string. The additional layer produces 10 values, which, after applying the sigmoid function, predict the probabilities of each class.
 
-The weighted binary cross entropy was used as a loss function. The weights were used to decrease the effect of unbalanced data. The weights were computed as normalized reverse frequencies of classes in the train data.
+We utilized weighted binary cross-entropy as the loss function. The weights were applied to mitigate the impact of unbalanced data, computed as normalized reverse frequencies of the classes in the training data.
 
-For transformer-based models, it is convenient to use a schedular which changes learning rate during training to make training more smooth: smoothness increases the learning rate from zero to set value during warmup training period and smoothly decrease it to zero for last part of training. We used linear schedular with warmup period equals to first 10% of total training steps.
+For transformer-based models, it is convenient to use a scheduler that adjusts the learning rate during training to create a smoother learning process. This approach gradually increases the learning rate from zero to a set value during the warm-up period and then smoothly decreases it to zero during the final stages of training. We used a linear scheduler with a warm-up period equal to the first 10% of the total training steps.
 
-After several training trials we found that weighted loss does not fully prevent overfitting to the most frequent classes. For training the final model, we decided to create fully balanced train and test datasets. 
-
+After several training trials, we found that the weighted loss did not fully prevent overfitting to the most frequent classes. Therefore, for training the final model, we decided to create fully balanced training and test datasets.
 
 ## Results
-We present here the different results: the "proof-of-concept" classification, followed by the 20 classes classification, and an extra step ;)
+We present the different results here: first, the 'proof-of-concept' classification, followed by the 20-class classification, and then an extra step. ;)
 
 #### Proof-of-concept
-We trained and tested with unbalanced datasets, but make use of weighted loss. Furthermore, to save memory, we decided to crop all quotes up to 300 characters.
-After having fed the classifier with the quotes classified following the 4-classes table, and trained it for 20 minutes, we get the following results:
+We trained and tested using unbalanced datasets but employed weighted loss. Additionally, to save memory, we decided to crop all quotes to a maximum of 300 characters.
+
+After feeding the classifier with the quotes classified according to the 4-class table and training it for 20 minutes, we obtained the following results:
 
 <figure>
     <p align="center">
@@ -163,8 +164,9 @@ After having fed the classifier with the quotes classified following the 4-class
     </p>
 </figure>
 
-The behaviour of the curves has nothing to do with the swiss mountains; it just come from the fact that we used a scheduler to vary the lerning rate of our AdamW optimizer. But its initialization was not well set and it initialized repeatidly instead of only once, so we find the strange behaviour. But it is fixed in the last use of the classifier.  
-The important point is that it learns well and fast ! Here is the roc_auc for each class:
+The behavior of the curves stems from the fact that we used a scheduler to vary the learning rate of our AdamW optimizer. However, the initialization was not set correctly, leading to repeated initialization instead of just once, which caused the strange behavior. This issue has been fixed in the latest use of the classifier.
+
+The important point is that it learns well and quickly! Here is the ROC AUC for each class:
 
 <figure>
     <p align="center">
@@ -172,11 +174,11 @@ The important point is that it learns well and fast ! Here is the roc_auc for ea
     </p>
 </figure>
 
-"Amount of class*" states the number of quote belonging to this class in the test set. As said before, it is unbalanced.  
-The results seems convincing. Next step: just feed the classifier with the quotes classified following the 20-classes table, run it for 8-10h and that's it! 
+`Amount of class` indicates the number of quotes belonging to this class in the test set. As mentioned earlier, the dataset is unbalanced.
+The results seem convincing. The next step is to feed the classifier with the quotes classified according to the 20-class table, run it for 8 to 10 hours, and that’s it!"
 
 #### 20 classes
-We trained and tested with unbalanced datasets, but make use of weighted loss. After having trained for about 9h, we get the following results:
+We trained and tested using unbalanced datasets but employed weighted loss. After training for approximately 9 hours, we obtained the following results:
 
 <figure>
     <p align="center">
@@ -184,7 +186,7 @@ We trained and tested with unbalanced datasets, but make use of weighted loss. A
     </p>
 </figure>
 
-(Same problem with scheduler, wait for it). Ok, we can't assess if it is good or bad by looking at the evolution of the loss but what about the roc_auc values ?
+While we can’t assess whether the results are good or bad by looking at the evolution of the loss, what about the ROC AUC values?
 
 <figure>
     <p align="center">
@@ -192,10 +194,11 @@ We trained and tested with unbalanced datasets, but make use of weighted loss. A
     </p>
 </figure>
 
-They are close to 0.5, which means that the classifier just classify randomly. This is super bad !
+They are close to 0.5, which indicates that the classifier is essentially classifying randomly. This is very disappointing!
 
 #### Can we do better ?
-We assumed that the problem came from the fact that we have to many classes. So we decided to move from 20 to only 10 classes. We merge the classes according their similarity.  Here is the new classification table:
+
+We assumed that the problem arose from having too many classes, so we decided to reduce the number from 20 to just 10. We merged the classes based on their similarity. Here is the new classification table:
 
 | Cluster | Label | Meaning | # of quote before filtering | # of quote after filtering |
 |-------|--------|---------|---------|---------|
@@ -210,7 +213,7 @@ We assumed that the problem came from the fact that we have to many classes. So 
 | 8 | J | Journalism related careers | 839'391 | 143'374 |
 | 9 | MW | Military and War related careers | 188'863 | 678'870 |
 
-Furthermore, after some reflexions, it seemed that the unbalanced testing set was fooling us in some ways for the interpretation of the results. Thus, this step is done with unbalaced training set but balanced testing set.  Finally, we made the assumption that quotes with # of characters < 50 were not containing relevant information and we filtered them out. This allowed us to save some space and we augmented the "crop treshold" from 300 to 400.
+Furthermore, after some reflection, it appeared that the unbalanced testing set was misleading us in terms of interpreting the results. Therefore, this step was conducted with an unbalanced training set but a balanced testing set. Finally, we assumed that quotes with fewer than 50 characters did not contain relevant information and filtered them out. This allowed us to save space, and we increased the crop threshold from 300 to 400 characters.
 
 <figure>
     <p align="center">
@@ -218,7 +221,7 @@ Furthermore, after some reflexions, it seemed that the unbalanced testing set wa
     </p>
 </figure>
 
-Well, even though the scheduler thing is still not fixed (waaiiiiiit for iiiit), those loss curves are kind of impossible to interpret in any ways. We can look at extended performance metrics:
+Well, even though the scheduler issue is still not fixed, those loss curves are quite difficult to interpret. Instead, we can examine extended performance metrics:
 
 <figure>
     <p align="center">
@@ -226,8 +229,9 @@ Well, even though the scheduler thing is still not fixed (waaiiiiiit for iiiit),
     </p>
 </figure>
 
-Here, "support" states that there is 10'000 quotes/class in the test set.  
-We can see that the f1 score is low for some classes. We then decided to plot the confusion matrix of classification. And here is what we got:
+Here, 'support' indicates that there are 10,000 quotes per class in the test set.
+
+We can see that the F1 score is low for some classes. Therefore, we decided to plot the confusion matrix for the classification, and here is what we obtained:"
 
 <figure>
     <p align="center">
@@ -235,7 +239,7 @@ We can see that the f1 score is low for some classes. We then decided to plot th
     </p>
 </figure>
 
-Even though the diagonal term seems to by the higher column-wise, some columns behaves as attractors. That is the classes 3,6 (GPAxLPSCS, SPORTS) and 1,2,7 (AAVTCM, BMAxF, STEMxIT). Unsurprisingly, this is correlated with the number of quote per class in the training set. The weighted loss does not correct the problem ! We have to try to pass it a balanced training set 
+Even though the diagonal terms appear to be the highest in each column, some columns behave as attractors. Specifically, classes 3 and 6 (GPAxLPSCS and SPORTS) and classes 1, 2, and 7 (AAVTCM, BMAxF, and STEMxIT) show this behavior. Unsurprisingly, this is correlated with the number of quotes per class in the training set. The weighted loss does not resolve the issue! We need to try using a balanced training set.
 
 <figure>
     <p align="center">
@@ -244,16 +248,16 @@ Even though the diagonal term seems to by the higher column-wise, some columns b
 </figure>
 
 #### Putting the pieces together
-As said before, we decided as final step to balance the training set. The bottleneck class is `Journalism` with 143'374 quotes. We build a final training set containing 72'000 quotes of each class and a test set containg 72'000 quotes of each class as well.  
-Good news, we fixed the scheduler as well. Here is our loss curves :
+As mentioned earlier, we decided to balance the training set as a final step. The bottleneck class is `Journalism`, with 143,374 quotes. We built a final training set containing 72,000 quotes from each class, as well as a test set with 72,000 quotes from each class.
 
+The good news is that we also fixed the scheduler! Here are our loss curves:
 <figure>
     <p align="center">
     <img title="4class_loss_graph" width="500px" src="img/results/10classes_balanced_loss_graph.png">
     </p>
 </figure>
 
-It finally behaves normally. What about the performance metrics ?
+It finally behaves normally. What about the performance metrics?
 
 <figure>
     <p align="center">
@@ -271,17 +275,29 @@ Seems good as well. And for the confusion matrix ?
 
 Great ! Problem fixed :)
 
+## Conclusion
+
+In this project, we explored the challenges of classifying quotes into various occupational categories using a BERT-based classifier. Through several iterations and adjustments, including balancing our training and testing datasets and refining our approach to class imbalance, we ultimately improved the model's performance metrics.
+
+While the initial results with unbalanced data were discouraging, the adjustments we made—such as filtering out less informative quotes and ensuring a balanced training set—enabled us to achieve more reliable classifications. The final performance metrics indicate a significant improvement, highlighting the importance of dataset preparation and model tuning in machine learning projects.
+
+Moving forward, we aim to further enhance our classifier by exploring additional features and potentially leveraging larger datasets. This journey illustrates the iterative nature of machine learning, where each step brings valuable insights and opportunities for growth.
+
+Thank you for following along, and we look forward to sharing our future findings!
+
+The k-dim team.
+
 ## Room for improvement
 
-We finally got a unpaid assistant working for the occupation classification. We did not have time to use it in the classification process. 
+We finally managed to have an unpaid assistant working on the occupation classification. Unfortunately, we did not have time to integrate it into the classification process. Moving forward, we aim to incorporate this resource to enhance our model's performance and achieve even more accurate results.
 
 #### Sentence-BERT algorithm for occupation clustering
 
-[Sentence-BERT](https://joeddav.github.io/blog/2020/05/29/ZSL.html) is a recent technique which fine-tunes the pooled BERT sequence representations for increased semantic richness, as a method for obtaining sequence and label embeddings.
+[Sentence-BERT](https://joeddav.github.io/blog/2020/05/29/ZSL.html) is a recent technique that fine-tunes pooled BERT sequence representations to enhance semantic richness, providing a method for obtaining both sequence and label embeddings.
 
-This pretrained algorithm not only made occupation clustering automatically, but also clustered all the 6800 unique occupations !
+This pretrained algorithm not only facilitated automatic occupation clustering but also managed to cluster all 6,800 unique occupations!
 
-Sentence-BERT was used to cluster 6800 occupations into 10 defined clusters, by stating for each occupation 10 hypotheses and taking clustering each to the maximum prediction confidence of this algorithm. The plot below shows the distribution of the prediction confidence for each cluster over the filtered additional dataset.
+Using Sentence-BERT, we clustered the 6,800 occupations into 10 defined clusters. For each occupation, we generated 10 hypotheses and assigned each to the cluster with the maximum prediction confidence from the algorithm. The plot below illustrates the distribution of prediction confidence for each cluster over the filtered additional dataset.
 
 <figure>
     <p align="center">
@@ -289,12 +305,7 @@ Sentence-BERT was used to cluster 6800 occupations into 10 defined clusters, by 
     </p>
 </figure>
 
-## Conclusion
-We finally get a classifier performing correctly. Furthermore, it would awesome to make use of the implemented automated occupation clusterer. But this is your job if you want to ;)  
 
-Thank for having read us! I hope you enjoyed your ADAventure with us.
-
-The k-dim team.
 
 ## References<br>
 
