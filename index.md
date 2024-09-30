@@ -6,7 +6,7 @@ subtitle: An ADAventure based on quotations
 classes: wide
 ---
 
-Ever heard of [Catch Me If You Can](https://en.wikipedia.org/wiki/Catch_Me_If_You_Can) ? In this movie, the main character impersonates many professions mainly by appropriating their uniforms, specific behaviours and lingos, and everybody fall for it !  
+Ever heard of [Catch Me If You Can](https://en.wikipedia.org/wiki/Catch_Me_If_You_Can)? In this movie, the main character impersonates many professions, mainly by adopting their uniforms, specific behaviors, and jargon, and everyone falls for it!
 
 <figure>
     <p align="center">
@@ -14,10 +14,9 @@ Ever heard of [Catch Me If You Can](https://en.wikipedia.org/wiki/Catch_Me_If_Yo
     </p>
 </figure>
 
-For the uniform it is quite obvious, but what can we say about the lingo ? One will agree that each occupation has its « proper words », but let's think further, a person of a specific profession will also express himself in a certain manner. Think of a politician, he does not only speaks about economy and education, but also uses some figure of speech, and his discourse is fluid and well conducted; rather of a sportsman or a scientist, for exemple.  
+For the uniform, it's quite obvious, but what about the lingo? While it's true that each occupation has its 'proper words,' let's dig a little deeper. A person in a specific profession not only uses certain terminology but also expresses themselves in a particular way. Think of a politician—not only does he speak about topics like the economy and education, but he also employs certain figures of speech, and his discourse is fluid and well-structured. Now compare that to the way a sportsman or a scientist might communicate, for example.
 
-Based on this statement: give us a quote, and we will tell you which profession said it ! 
-
+Based on this, give us a quote, and we’ll tell you which profession said it!
 
 ## Table of Contents
 
@@ -30,16 +29,15 @@ Based on this statement: give us a quote, and we will tell you which profession 
 - [Conclusion](#conclusion)
 - [References](#references)
 
-
-
 ## Datasets   
 
-We present here the two main datasets used for this project. You can find them following the link in the upper menu. 
+We present the two main datasets used in this project. You can access them via the link in the top menu.
 
 #### Quotebank
-We do we have here ? The full dataset is made of 178 million quotations together with a list of possible speaker ranked by probability, the name of the most probable speaker and its [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) Qid, when it has been published, and where it has been published. The later is important because this information has been exctracted out of 162 million English news articles published between 2008 and 2020 included, so one might want to keep records of it.
 
-162 million, 178 million, but who did that ? Well it's the nice library assistant Quobert, and it does it freely. Here is a nice picture (taken from [this publication](https://dlab.epfl.ch/people/west/pub/Vaucher-Spitz-Catasta-West_WSDM-21.pdf)[^1] explaining in full detail how the dataset has been collected) that could help you to grasp Quobert's workflow.
+What do we have here? The full dataset consists of 178 million quotations, along with a list of possible speakers ranked by probability, the name of the most likely speaker, and their [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) QID (when available), as well as when and where the quotation was published. The latter is particularly important because this information was extracted from 162 million English news articles published between 2008 and 2020, so one might want to keep a record of it.
+
+162 million, 178 million—but who did all that? Well, it’s thanks to the helpful library assistant, Quobert, and it does it all for free. Here's a helpful image (taken from [this publication](https://dlab.epfl.ch/people/west/pub/Vaucher-Spitz-Catasta-West_WSDM-21.pdf)[^1]) that explains in full detail how the dataset was collected and might help you better understand Quobert's workflow.
 
 <figure>
     <p align="center">
@@ -47,8 +45,8 @@ We do we have here ? The full dataset is made of 178 million quotations together
     </p>
 </figure>
 
-Super nice, except that it correctly attributes only about 85% of the quotations. But could you except better from un unpaid assistant ?  
-Here is some of its failures:
+Super nice, except that it correctly attributes only about 85% of the quotations. But can you really expect better from an unpaid assistant?
+Here are some examples of its failures:
 
 <figure>
     <p align="center">
